@@ -1,0 +1,66 @@
+int define_number(char ch)
+{
+    int a=0;
+    switch (ch)
+    {
+        case 'I':
+            a= 1; 
+            break;
+        case 'V':
+            a= 5;  
+            break;
+        case 'X':         
+            a= 10; 
+            break;
+        case 'L':
+            a=50;
+            break;
+        case 'C' :        
+            a= 100;
+            break;
+        case 'D'  :          
+            a= 500;
+             break;
+        case 'M'  :        
+            a= 1000;
+            break;
+        default:
+            a=0;
+            
+            }       
+    
+     return a;
+    }
+
+    
+    
+int romanToInt(char * s){
+
+    int res=0,a,b,i=0;
+    char * p =s;
+    
+    
+    while(p[i]!='\0')
+    {
+        
+        a=define_number(p[i]);
+        b=define_number(p[i+1]);
+        
+        if(a>=b)
+            { 
+            res=res+a;
+            i=i+1;
+            }        
+
+         else 
+         {
+            res=res+b-a;          
+            i=i+2;
+             
+             }
+                         
+      }   
+    
+    return res;
+    
+}
