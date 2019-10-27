@@ -1,0 +1,40 @@
+bool isValid(char * s){
+    
+  if (s == NULL || s[0] == '\0') 
+      return true;
+    
+    char stack[10240]; 
+    int top =0,i=0;
+    
+    while(s[i])
+    { 
+        if ( s[i]=='(' || s[i]=='[' || s[i]=='{')
+        {
+           stack[top]=s[i];
+        
+           top++;
+            
+        }
+            
+        else
+        {
+            if (--top < 0)  
+                return false;
+            if( s[i]==')' && stack[top]!='(')
+                return false;
+            if( s[i]==']' && stack[top]!= '[')
+                return false;
+            if( s[i]=='}' && stack[top]!= '{')
+                return false;
+           
+        }
+        
+        ++i;           
+    }
+    
+    
+    return (top ? false : true);
+   
+
+}
+
