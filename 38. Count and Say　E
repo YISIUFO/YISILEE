@@ -1,0 +1,41 @@
+char * countAndSay(int n){
+    
+    char *old = (char *)malloc(sizeof(char)*10000);
+    strcpy(old ,"1");
+    char *new = (char *)malloc(sizeof(char)*10000);
+    strcpy(new ,"");
+    char temp[3];
+    int i,j,count=1;
+    
+    for (i=1;i<n;i++)
+    {
+        
+       for(j=0;j<strlen(old);j++) 
+       {
+           if(old[j]==old[j+1])
+           {
+               count++;
+               
+           }
+           else
+           {
+               temp[0]=count+'0';
+               temp[1]=old[j];
+               count=1;
+               temp[2]='\0';  
+               strcat(new,temp);
+                         
+           }
+   
+          
+       }
+        
+        strcpy(old,new);
+        strcpy(new,"");
+              
+    }
+
+    
+    return old;
+}
+
